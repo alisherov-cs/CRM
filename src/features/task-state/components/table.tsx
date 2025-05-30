@@ -45,6 +45,7 @@ export const TaskStateTable = () => {
     {
       title: "#",
       key: "#",
+      width: 80,
       render: (_, __, index) =>
         meta && (meta?.page - 1) * meta?.limit + index + 1,
     },
