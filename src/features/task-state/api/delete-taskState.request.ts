@@ -1,13 +1,12 @@
 import { axiosPrivate } from "@/api";
 import { endpoints } from "@/api/endpoints";
+import { useApiPagination } from "@/features/pagination/hooks/use-api-pagination";
+import { useSearch } from "@/features/search/hooks/useSearch";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useSearchParams } from "react-router-dom";
 
 export const useDeleteTaskState = () => {
-  const page = 1;
-  const limit = 10;
-  const [searchParams] = useSearchParams();
-  const search = searchParams.get("search");
+  const { search } = useSearch();
+  const { page, limit } = useApiPagination();
 
   const queryClient = useQueryClient();
 

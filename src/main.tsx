@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ConfigProvider>
+      <ConfigProvider modal={{ centered: true }}>
         <RouterProvider router={router} />
       </ConfigProvider>
     </QueryClientProvider>

@@ -2,7 +2,8 @@ import { axiosPrivate } from "@/api";
 import { endpoints } from "@/api/endpoints";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { TTaskStateCreateRequest } from "./create-taskState.request";
-import { useSearchParams } from "react-router-dom";
+import { useSearch } from "@/features/search/hooks/useSearch";
+import { useApiPagination } from "@/features/pagination/hooks/use-api-pagination";
 
 export type TTaskStateUpdateRequest = {
   taskStateId: string;
@@ -10,10 +11,8 @@ export type TTaskStateUpdateRequest = {
 };
 
 export const useUpdateTaskState = () => {
-  const page = 1;
-  const limit = 10;
-  const [searchParams] = useSearchParams();
-  const search = searchParams.get("search");
+  const { search } = useSearch();
+  const { page, limit } = useApiPagination();
 
   const queryClient = useQueryClient();
 

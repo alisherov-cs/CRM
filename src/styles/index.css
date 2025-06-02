@@ -1,5 +1,75 @@
 @import "tailwindcss";
 
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #373737 0%, #3e3c44 50%, #070606 100%);
+  border-radius: 4px;
+  border: 2px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #373737 0%, #3e3c44 50%, #070606 100%);
+  border: 2px solid #e2e8f0;
+  transform: scale(1.1);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #373737 0%, #3e3c44 50%, #070606 100%);
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #5e5e60 transparent;
+}
+
+/* Alternative styles for different themes */
+
+/* Dark theme scrollbar */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #373737 0%, #3e3c44 50%, #070606 100%);
+    border: 2px solid #1e293b;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    border: 2px solid #334155;
+  }
+
+  html {
+    scrollbar-color: #5e5e60 transparent;
+  }
+}
+
+/* Animated scrollbar */
+@keyframes scrollbar-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.8);
+  }
+}
+
+.scrollbar-animated::-webkit-scrollbar-thumb {
+  animation: scrollbar-glow 2s ease-in-out infinite;
+}
+
 html,
 body,
 #root {
