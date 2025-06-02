@@ -14,8 +14,8 @@ import {
   TableInterval,
   TableTitle,
 } from "@/components";
-import { tablePropsBuilder } from "@/utils/table-props-builder";
 import { useDeleteTaskState } from "../api/delete-taskState.request";
+import { useTablePropsBuilder } from "@/features/pagination/hooks/use-table-props-builder";
 
 export const TaskStateTable = () => {
   const { onOpen } = useTaskStatesFormState();
@@ -108,7 +108,7 @@ export const TaskStateTable = () => {
       <div className="table-container">
         <Table
           loading={isLoading}
-          {...tablePropsBuilder<TTaskState>(columns, data ?? [])}
+          {...useTablePropsBuilder<TTaskState>(columns, data ?? [], meta)}
         />
       </div>
 

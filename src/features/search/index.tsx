@@ -12,7 +12,7 @@ export const Search = () => {
     } else {
       searchParams.delete("search");
     }
-    setSearchParams(searchParams);
+    setSearchParams(searchParams, { replace: true });
   }, 300);
 
   return (

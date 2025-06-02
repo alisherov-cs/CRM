@@ -3,12 +3,14 @@ export type TApiError = {
   status: number;
 };
 
+export type TPagination = {
+  page: number;
+  total: number;
+  limit: number;
+  hasMore: boolean;
+};
+
 export type TApiResponseWithPagination<T> = {
   data: T;
-  meta: {
-    page: number;
-    total: number;
-    limit: number;
-    hasMore: boolean;
-  };
+  meta: TPagination;
 };
